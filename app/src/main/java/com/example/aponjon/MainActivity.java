@@ -51,16 +51,15 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         updateGreeting();
         tts = new TextToSpeech(this, this);
 
-        // Start Conversation - Opens ChatActivity (NEW PAGE)
         startBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ChatActivity.class);
             startActivity(intent);
         });
 
-        // Medicine Reminder
+
         medicineBtn.setOnClickListener(v -> startActivity(new Intent(this, MedicineActivity.class)));
 
-        // Other Buttons - Coming Soon
+
         emergencyBtn.setOnClickListener(v -> Toast.makeText(this, "🚨 Emergency Alert - Coming Soon!", Toast.LENGTH_SHORT).show());
         safetyBtn.setOnClickListener(v -> Toast.makeText(this, "🛡️ Safety Monitoring - Coming Soon!", Toast.LENGTH_SHORT).show());
         lovedOneBtn.setOnClickListener(v -> Toast.makeText(this, "👨‍👩‍👧 Loved One - Coming Soon!", Toast.LENGTH_LONG).show());
@@ -99,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             String spokenText = result.get(0);
-            // You can handle voice input here if needed
+
         }
     }
 
